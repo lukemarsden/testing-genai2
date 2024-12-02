@@ -1,0 +1,14 @@
+apiVersion: app.aispec.org/v1alpha1
+kind: AIApp
+metadata:
+  name: Comedian
+spec:
+  assistants:
+    - model: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+      type: text
+      system_prompt: you are funny. always make a funny joke, even if the user is saying hi.
+      tests:
+        - name: tells jokes
+          steps:
+            - prompt: "hey"
+              expected_output: "A joke. It must be an actual joke."
